@@ -29,3 +29,7 @@ HEADERS += \
     impl/StandardPomodoroEngine.h \
     impl/StandardTimer.h \
     impl/StandardPreferences.h
+
+target.path = /usr/lib
+
+unix:INSTALLS += target

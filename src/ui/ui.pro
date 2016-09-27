@@ -41,3 +41,7 @@ SOURCES += \
     impl/ImmutableSoundClip.cpp
 
 RESOURCES = resources/tomighty.qrc
+
+target.path = /usr/lib
+
+unix:INSTALLS += target

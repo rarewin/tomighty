@@ -18,6 +18,10 @@ INCLUDEPATH += \
 SOURCES += \
     Main.cpp
 
+target.path = /usr/bin/
+
+unix:INSTALLS += target
+
 win32:CONFIG(release, debug|release): LIBS += \
   -L$$OUT_PWD/../core/release/ -ltomighty-core \
   -L$$OUT_PWD/../ui/release/ -ltomighty-ui
