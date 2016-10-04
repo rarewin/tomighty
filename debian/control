@@ -1,0 +1,24 @@
+Source: tomighty
+Section: utils
+Priority: optional
+Maintainer: Katsuki Kobayashi <rare@tirasweel.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.8
+Homepage: http://tomighty.org/
+#Vcs-Git: https://anonscm.debian.org/collab-maint/tomighty.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/tomighty.git
+
+Package: tomighty
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: desktop timer app for the Pomodoro Technique
+ A desktop timer app for the Pomodoro Technique® written in C++ on top of Qt 5.
+ .
+ It's designed to be:
+ .
+ * Simple
+ * Non-distracting
+ * Unintrusive
+ * Reasonably configurable
+ * Extensible (with plugins)
+ * Cross-platform
