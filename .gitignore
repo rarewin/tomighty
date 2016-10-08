@@ -3,3 +3,9 @@ build/
 *.autosave
 **/*.pro.user
 **/*.pro.user.*
+debian/tomighty
+debian/tomighty.debhelper.log
+debian/tomighty.substvars
+debian/tomighty.*.debhelper
+debian/debhelper-build-stamp
+debian/files

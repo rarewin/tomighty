@@ -1,6 +1,13 @@
 sudo: required
 language: c++
 
+env:
+  global:
+    - TRAVIS_DEBIAN_GIT_BUILDPACKAGE="gbp --git-upstream-tag=`git show-branch --sha1-name debian develop | tail -1 | grep -o '[[:alnum:]]*' | head -1`"e
+    - TRAVIS_DEBIAN_DISTRIBUTION="sid"
+    - TRAVIS_DEBIAN_EXTRA_REPOSITORY_GPG_URL=""
+    - TRAVIS_DEBIAN_EXTRA_REPOSITORY=""
+
 services:
   - docker
 
