@@ -1,9 +1,12 @@
 sudo: required
 language: c++
 
+# value for --git-upstream-tag should be replaced by the result of the following...
+# git show-branch --sha1-name debian develop | tail -1 | grep -o '[[:alnum:]]*' | head -1
+
 env:
   global:
-    - TRAVIS_DEBIAN_GIT_BUILDPACKAGE="gbp --git-upstream-tag=`git show-branch --sha1-name debian develop | tail -1 | grep -o '[[:alnum:]]*' | head -1`"e
+    - TRAVIS_DEBIAN_GIT_BUILDPACKAGE="gbp buildpackage --git-upstream-tag=f55209d"
     - TRAVIS_DEBIAN_DISTRIBUTION="sid"
     - TRAVIS_DEBIAN_EXTRA_REPOSITORY_GPG_URL=""
     - TRAVIS_DEBIAN_EXTRA_REPOSITORY=""
