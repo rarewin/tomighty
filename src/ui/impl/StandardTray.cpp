@@ -91,13 +91,15 @@ void StandardTray::buildMenu()
   _shortBreakAction = createTimerAction(tr("Short break"), QString(":/images/icons/menu/short-break.png"));
   _longBreakAction = createTimerAction(tr("Long break"), QString(":/images/icons/menu/long-break.png"));
   _trayMenu->addSeparator();
-  _trayMenu->addAction(tr("Preferences..."));
-  _trayMenu->addAction(tr("About Tomighty"));
+  QAction *preferences = _trayMenu->addAction(tr("Preferences..."));
+  QAction *aboutTomighty = _trayMenu->addAction(tr("About Tomighty"));
   _trayMenu->addSeparator();
   QAction *quitAction = _trayMenu->addAction(tr("Quit"));
 
   _remainingTimeAction->setEnabled(false);
   pomodoroCountAction->setEnabled(false);
+  preferences->setEnabled(false);
+  aboutTomighty->setEnabled(false);
 
   quitAction->setShortcut(QKeySequence::Quit);
 
