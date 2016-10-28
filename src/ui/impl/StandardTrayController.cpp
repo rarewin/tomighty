@@ -15,6 +15,7 @@
  */
 
 #include <QApplication>
+#include <QIcon>
 
 #include "TimerSignalEmitter.h"
 #include "Interval.h"
@@ -67,7 +68,7 @@ StandardTrayController::StandardTrayController(Tray &tray, const TrayIconFiles &
 void StandardTrayController::switchToIdleState()
 {
   updateRemainingTime(0);
-  _tray.setIcon(_trayIconFiles.idle());
+  _tray.setIcon(QIcon(_trayIconFiles.idle()));
   _tray.enableStopTimerAction(false);
   _tray.enablePomodoroAction(true);
   _tray.enableShortBreakAction(true);
@@ -102,7 +103,7 @@ void StandardTrayController::stopTimer()
 void StandardTrayController::timerSet(const Interval &interval)
 {
   updateRemainingTime(interval.seconds());
-  _tray.setIcon(_trayIconFiles.forIntervalType(interval.type()));
+  _tray.setIcon(QIcon(_trayIconFiles.forIntervalType(interval.type())));
   _tray.enableStopTimerAction(true);
   _tray.enablePomodoroAction(interval.type() != IntervalType::POMODORO);
   _tray.enableShortBreakAction(interval.type() != IntervalType::SHORT_BREAK);

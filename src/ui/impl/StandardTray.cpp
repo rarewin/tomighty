@@ -18,6 +18,7 @@
 #include <QMenu>
 #include <QObject>
 #include <QSystemTrayIcon>
+#include <QIcon>
 
 #include "StandardTray.h"
 
@@ -69,9 +70,9 @@ void StandardTray::setRemainingTimeText(const QString &text)
   _remainingTimeAction->setText(text);
 }
 
-void StandardTray::setIcon(const QString &iconFile)
+void StandardTray::setIcon(const QIcon &icon)
 {
-  _systemTray->setIcon(QIcon(iconFile));
+  _systemTray->setIcon(icon);
 }
 
 void StandardTray::buildSystemTray()
