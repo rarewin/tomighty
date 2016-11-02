@@ -53,10 +53,10 @@ namespace tmty
 
         void timerSet(const Interval &);
         void timerStopped();
-        void secondElapsed(int);
+        void secondElapsed(int, const Interval &);
 
       private:
-        void updateRemainingTime(int secondsLeft);
+        void updateRemainingTime(int secondsLeft, const Interval &interval);
         void switchToIdleState();
 
         Tray &_tray;
