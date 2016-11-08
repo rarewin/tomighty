@@ -18,6 +18,7 @@
 #define TRAY_H
 
 #include <QObject>
+#include <QIcon>
 
 namespace tmty
 {
@@ -37,7 +38,7 @@ namespace tmty
         virtual void enableShortBreakAction(bool enable) = 0;
         virtual void enableLongBreakAction(bool enable) = 0;
         virtual void setRemainingTimeText(const QString &text) = 0;
-        virtual void setIcon(const QString &iconFile) = 0;
+        virtual void setIcon(const QIcon &iconFile) = 0;
 
       signals:
         void pomodoroClicked();

@@ -22,6 +22,7 @@
 class QAction;
 class QMenu;
 class QSystemTrayIcon;
+class QIcon;
 
 namespace tmty
 {
@@ -41,7 +42,7 @@ namespace tmty
         void enableShortBreakAction(bool enable);
         void enableLongBreakAction(bool enable);
         void setRemainingTimeText(const QString &text);
-        void setIcon(const QString &iconFile);
+        void setIcon(const QIcon &icon);
 
       private:
         QSystemTrayIcon *_systemTray;

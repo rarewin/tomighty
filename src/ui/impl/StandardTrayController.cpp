@@ -15,6 +15,9 @@
  */
 
 #include <QApplication>
+#include <QPixmap>
+#include <QPainter>
+#include <QIcon>
 
 #include "TimerSignalEmitter.h"
 #include "Interval.h"
@@ -55,7 +58,7 @@ StandardTrayController::StandardTrayController(Tray &tray, const TrayIconFiles &
           this, SLOT(timerStopped()));
 
   connect(&_timerSignalEmitter, SIGNAL(secondElapsed(int, const Interval &)),
-          this, SLOT(secondElapsed(int)));
+          this, SLOT(secondElapsed(int, const Interval &)));
 
   if(QApplication::instance())
   {
@@ -66,8 +69,10 @@ StandardTrayController::StandardTrayController(Tray &tray, const TrayIconFiles &
 
 void StandardTrayController::switchToIdleState()
 {
-  updateRemainingTime(0);
-  _tray.setIcon(_trayIconFiles.idle());
+  Interval interval;
+
+  updateRemainingTime(0, interval);
+  _tray.setIcon(QIcon(_trayIconFiles.idle()));
   _tray.enableStopTimerAction(false);
   _tray.enablePomodoroAction(true);
   _tray.enableShortBreakAction(true);
@@ -101,8 +106,8 @@ void StandardTrayController::stopTimer()
 
 void StandardTrayController::timerSet(const Interval &interval)
 {
-  updateRemainingTime(interval.seconds());
-  _tray.setIcon(_trayIconFiles.forIntervalType(interval.type()));
+  updateRemainingTime(interval.seconds(), interval);
+  _tray.setIcon(QIcon(_trayIconFiles.forIntervalType(interval.type())));
   _tray.enableStopTimerAction(true);
   _tray.enablePomodoroAction(interval.type() != IntervalType::POMODORO);
   _tray.enableShortBreakAction(interval.type() != IntervalType::SHORT_BREAK);
@@ -114,12 +119,12 @@ void StandardTrayController::timerStopped()
   switchToIdleState();
 }
 
-void StandardTrayController::secondElapsed(int secondsLeft)
+void StandardTrayController::secondElapsed(int secondsLeft, const Interval &interval)
 {
-  updateRemainingTime(secondsLeft);
+  updateRemainingTime(secondsLeft, interval);
 }
 
-void StandardTrayController::updateRemainingTime(int secondsLeft)
+void StandardTrayController::updateRemainingTime(int secondsLeft, const Interval &interval)
 {
   int minutes = secondsLeft / 60;
   int seconds = secondsLeft - minutes * 60;
@@ -128,4 +133,21 @@ void StandardTrayController::updateRemainingTime(int secondsLeft)
   text.sprintf("%02d:%02d", minutes, seconds);
 
   _tray.setRemainingTimeText(text);
+
+  // put remaining time on the icon
+  QString figImgFile;
+  figImgFile.sprintf(":images/icons/tray/%02d.png", minutes);
+
+  QPixmap pixmap(16, 16);
+  QPixmap pic(_trayIconFiles.forIntervalType(interval.type()));
+  QPixmap _01pic(figImgFile);
+  QRectF icon_size(0, 0, 16, 16);
+
+  pixmap.fill(Qt::transparent);
+
+  QPainter painter(&pixmap);
+  painter.drawPixmap(icon_size, pic, icon_size);
+  painter.drawPixmap(icon_size, _01pic, icon_size);
+
+  _tray.setIcon(QIcon(pixmap));
 }

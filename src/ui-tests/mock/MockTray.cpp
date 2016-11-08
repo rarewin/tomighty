@@ -28,7 +28,8 @@ MockTray::MockTray(QObject *parent) :
   _isShortBreakActionEnabled = false;
   _isLongBreakActionEnabled = false;
   _remainingTimeText = QString("undefined");
-  _icon = QString("undefined");
+  _iconStr = QString("undefined");
+  _icon = QIcon();
 }
 
 void MockTray::show()
@@ -103,10 +104,10 @@ void MockTray::setRemainingTimeText(const QString &text)
 
 const QString &MockTray::icon()
 {
-  return _icon;
+  return _iconStr;
 }
 
-void MockTray::setIcon(const QString &iconFile)
+void MockTray::setIcon(const QIcon &iconFile)
 {
   _icon = iconFile;
 }

@@ -37,7 +37,7 @@ namespace tmty
         void enableShortBreakAction(bool enable);
         void enableLongBreakAction(bool enable);
         void setRemainingTimeText(const QString &text);
-        void setIcon(const QString &iconFile);
+        void setIcon(const QIcon &iconFile);
 
         bool isShowing();
         bool isStopTimerActionEnabled();
@@ -56,7 +56,8 @@ namespace tmty
         bool _isShortBreakActionEnabled;
         bool _isLongBreakActionEnabled;
         QString _remainingTimeText;
-        QString _icon;
+        QString _iconStr;
+        QIcon _icon;
     };
   }
 }

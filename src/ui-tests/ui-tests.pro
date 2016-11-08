@@ -6,7 +6,7 @@ CONFIG   += console
 CONFIG   -= app_bundle
 
 QT       += testlib
-QT       -= gui
+QT       += gui
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
