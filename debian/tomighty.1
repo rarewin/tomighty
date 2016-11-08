@@ -4,7 +4,7 @@
 .\" First parameter, NAME, should be all caps
 .\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
 .\" other parameters are allowed: see man(7), man(1)
-.TH Tomighty SECTION "October  1 2016"
+.TH Tomighty 1 "October  1 2016"
 .\" Please adjust this date whenever revising the manpage.
 .\"
 .\" Some roff macros, for reference:
@@ -18,39 +18,31 @@
 .\" .sp <n>    insert n+1 empty lines
 .\" for manpage-specific macros, see man(7)
 .SH NAME
-tomighty \- program to do something
-.SH SYNOPSIS
-.B tomighty
-.RI [ options ] " files" ...
-.br
-.B bar
-.RI [ options ] " files" ...
+tomighty \- desktop timer app for the Pomodoro Technique\*R
 .SH DESCRIPTION
-This manual page documents briefly the
-.B tomighty
-and
-.B bar
-commands.
-.PP
-.\" TeX users may be more comfortable with the \fB<whatever>\fP and
-.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
-.\" respectively.
-\fBtomighty\fP is a program that...
-.SH OPTIONS
-These programs follow the usual GNU command line syntax, with long
-options starting with two dashes (`-').
-A summary of options is included below.
-For a complete description, see the Info files.
-.TP
-.B \-h, \-\-help
-Show summary of options.
-.TP
-.B \-v, \-\-version
-Show version of program.
-.SH SEE ALSO
-.BR bar (1),
-.BR baz (1).
-.br
-The programs are documented fully by
-.IR "The Rise and Fall of a Fooish Bar" ,
-available via the Info system.
+.Pp
+\fBtomighty\fP is a desktop timer app for the Pomodoro Technique® written in C++ on top of Qt 5.
+
+It's designed to be:
+.IP *
+Simple
+.IP *
+Non-distracting
+.IP *
+Unintrusive
+.IP *
+Reasonably configurable
+.IP *
+Extensible (with plugins)
+.IP *
+Cross-platform
+
+.SH AUTHOR
+
+\fBtomighty\fP
+was written by Célio Cidral Junior <ccidral@gmail.com>.
+This manual page was written by Katsuki Kobayashi <rare@tirasweel.org>
+for the Debian GNU/Linux system
+but may be used by others under the same license as
+\fBtomighty\fP
+itself.
