@@ -92,14 +92,29 @@ void StandardTray::buildMenu()
   _shortBreakAction = createTimerAction(tr("Short break"), QString(":/images/icons/menu/short-break.png"));
   _longBreakAction = createTimerAction(tr("Long break"), QString(":/images/icons/menu/long-break.png"));
   _trayMenu->addSeparator();
-  QAction *preferences = _trayMenu->addAction(tr("Preferences..."));
+  QMenu *preferences = _trayMenu->addMenu(tr("Preferences..."));
   QAction *aboutTomighty = _trayMenu->addAction(tr("About Tomighty"));
+
+  // sub menu
+  QAction *playSoundNotificationWhenTimerIsSet = preferences->addAction(tr("Play sound whtn timer is set"));
+  playSoundNotificationWhenTimerIsSet->setCheckable(true);
+  playSoundNotificationWhenTimerIsSet->setChecked(true);		// default: true
+  QAction *playSoundNotificationDuringPomodoros = preferences->addAction(tr("Play sound during pmodoros"));
+  playSoundNotificationDuringPomodoros->setCheckable(true);
+  playSoundNotificationDuringPomodoros->setChecked(true);		// default: true
+  QAction *playSoundNotificationDuringBreaks = preferences->addAction(tr("Play sound during breaks"));
+  playSoundNotificationDuringBreaks->setCheckable(true);
+  playSoundNotificationDuringBreaks->setChecked(true);			// default: true
+  QAction *playSoundNotificationWhenTimeExpires = preferences->addAction(tr("Play sound when time expires"));
+  playSoundNotificationWhenTimeExpires->setCheckable(true);
+  playSoundNotificationWhenTimeExpires->setChecked(true);		// default: true
+
   _trayMenu->addSeparator();
+
   QAction *quitAction = _trayMenu->addAction(tr("Quit"));
 
   _remainingTimeAction->setEnabled(false);
   pomodoroCountAction->setEnabled(false);
-  preferences->setEnabled(false);
   aboutTomighty->setEnabled(false);
 
   quitAction->setShortcut(QKeySequence::Quit);
