@@ -23,6 +23,7 @@
 #include "Interval.h"
 #include "IntervalType.h"
 #include "PomodoroEngine.h"
+#include "Preferences.h"
 #include "StandardTrayController.h"
 #include "Tray.h"
 #include "TrayIconFiles.h"
@@ -30,18 +31,20 @@
 using tmty::Interval;
 using tmty::IntervalType;
 using tmty::PomodoroEngine;
+using tmty::Preferences;
 using tmty::TimerSignalEmitter;
 using tmty::ui::StandardTrayController;
 using tmty::ui::Tray;
 using tmty::ui::TrayController;
 using tmty::ui::TrayIconFiles;
 
-StandardTrayController::StandardTrayController(Tray &tray, const TrayIconFiles &trayIconFiles, PomodoroEngine &pomodoroEngine, TimerSignalEmitter &timerSignalEmitter, QObject *parent) :
+StandardTrayController::StandardTrayController(Tray &tray, const TrayIconFiles &trayIconFiles, PomodoroEngine &pomodoroEngine, TimerSignalEmitter &timerSignalEmitter, Preferences &preferences, QObject *parent) :
   TrayController(parent),
   _tray(tray),
   _trayIconFiles(trayIconFiles),
   _pomodoroEngine(pomodoroEngine),
-  _timerSignalEmitter(timerSignalEmitter)
+  _timerSignalEmitter(timerSignalEmitter),
+  _preferences(preferences)
 {
   _tray.enablePomodoroCountResetAction(false);
   switchToIdleState();

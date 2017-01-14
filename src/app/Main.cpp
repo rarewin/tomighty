@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
   PomodoroEngine *pomodoroEngine = new StandardPomodoroEngine(*timer, *preferences);
   Tray *tray = new StandardTray();
   TrayIconFiles *trayIconFiles = new StandardTrayIconFiles();
-  TrayController *trayController = new StandardTrayController(*tray, *trayIconFiles, *pomodoroEngine, *timer);
+  TrayController *trayController = new StandardTrayController(*tray, *trayIconFiles, *pomodoroEngine, *timer, *preferences);
   SoundNotifications *soundNotifications = new StandardSoundNotifications();
   SoundNotificationController *soundNotificationController = new SoundNotificationController(*soundNotifications, *preferences);
 

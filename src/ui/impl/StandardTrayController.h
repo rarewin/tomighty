@@ -24,6 +24,7 @@ namespace tmty
   class Interval;
   class PomodoroEngine;
   class TimerSignalEmitter;
+  class Preferences;
 
   namespace ui
   {
@@ -40,6 +41,7 @@ namespace tmty
           const TrayIconFiles &trayIconFiles,
           PomodoroEngine &pomodoroEngine,
           TimerSignalEmitter &timerSignalEmitter,
+          Preferences &preferences,
           QObject *parent = 0
         );
 
@@ -63,6 +65,7 @@ namespace tmty
         const TrayIconFiles &_trayIconFiles;
         PomodoroEngine &_pomodoroEngine;
         TimerSignalEmitter &_timerSignalEmitter;
+        Preferences &_preferences;
     };
   }
 }

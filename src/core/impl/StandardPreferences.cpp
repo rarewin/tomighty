@@ -21,11 +21,13 @@ using tmty::IntervalType;
 using tmty::Preferences;
 using tmty::StandardPreferences;
 
-//TODO implement this class
-
 StandardPreferences::StandardPreferences(QObject *parent) :
   Preferences(parent)
 {
+  _shouldPlaySoundNotificationWhenTimerIsSet = true;
+  _shouldPlaySoundNotificationDuringPomodoros = true;
+  _shouldPlaySoundNotificationDuringBreaks = true;
+  _shouldPlaySoundNotificationWhenTimerExpires = true;
 }
 
 void StandardPreferences::setIntervalLengthInMinutes(IntervalType intervalType, int minutes)
@@ -45,36 +47,40 @@ int StandardPreferences::intervalLengthInMinutes(IntervalType intervalType) cons
 
 bool StandardPreferences::shouldPlaySoundNotificationWhenTimerIsSet()
 {
-  return true;
+  return _shouldPlaySoundNotificationWhenTimerIsSet;
 }
 
 void StandardPreferences::setShouldPlaySoundNotificationWhenTimerIsSet(bool shouldPlay)
 {
+  _shouldPlaySoundNotificationWhenTimerIsSet = shouldPlay;
 }
 
 bool StandardPreferences::shouldPlaySoundNotificationDuringPomodoros()
 {
-  return true;
+  return _shouldPlaySoundNotificationDuringPomodoros;
 }
 
 void StandardPreferences::setShouldPlaySoundNotificationDuringPomodoros(bool shouldPlay)
 {
+  _shouldPlaySoundNotificationDuringPomodoros = shouldPlay;
 }
 
 bool StandardPreferences::shouldPlaySoundNotificationDuringBreaks()
 {
-  return true;
+  return _shouldPlaySoundNotificationDuringBreaks;
 }
 
 void StandardPreferences::setShouldPlaySoundNotificationDuringBreaks(bool shouldPlay)
 {
+  _shouldPlaySoundNotificationDuringBreaks = shouldPlay;
 }
 
 bool StandardPreferences::shouldPlaySoundNotificationWhenTimerExpires()
 {
-  return true;
+  return _shouldPlaySoundNotificationWhenTimerExpires;
 }
 
 void StandardPreferences::setShouldPlaySoundNotificationWhenTimerExpires(bool shouldPlay)
 {
+  _shouldPlaySoundNotificationWhenTimerExpires = shouldPlay;
 }

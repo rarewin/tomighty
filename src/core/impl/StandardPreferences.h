@@ -42,6 +42,12 @@ namespace tmty
 
       bool shouldPlaySoundNotificationWhenTimerExpires();
       void setShouldPlaySoundNotificationWhenTimerExpires(bool shouldPlay);
+
+    private:
+      bool _shouldPlaySoundNotificationWhenTimerIsSet;
+      bool _shouldPlaySoundNotificationDuringPomodoros;
+      bool _shouldPlaySoundNotificationDuringBreaks;
+      bool _shouldPlaySoundNotificationWhenTimerExpires;
   };
 }
 
