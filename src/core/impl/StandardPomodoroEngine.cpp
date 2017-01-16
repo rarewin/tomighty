@@ -24,7 +24,7 @@ using tmty::Preferences;
 using tmty::StandardPomodoroEngine;
 using tmty::Timer;
 
-StandardPomodoroEngine::StandardPomodoroEngine(Timer &timer, const Preferences &preferences, QObject *parent) :
+StandardPomodoroEngine::StandardPomodoroEngine(Timer &timer, Preferences &preferences, QObject *parent) :
   PomodoroEngine(parent),
   _timer(timer),
   _preferences(preferences)
@@ -43,4 +43,24 @@ void StandardPomodoroEngine::stop()
   {
     _timer.interrupt();
   }
+}
+
+void StandardPomodoroEngine::changeSettingSoundNotificationTimerIsSet(bool shouldPlay)
+{
+  _preferences.setShouldPlaySoundNotificationWhenTimerIsSet(shouldPlay);
+}
+
+void StandardPomodoroEngine::changeSettingSoundNotificationDuringPomodoros(bool shouldPlay)
+{
+  _preferences.setShouldPlaySoundNotificationDuringPomodoros(shouldPlay);
+}
+
+void StandardPomodoroEngine::changeSettingSoundNotificationDuringBreaks(bool shouldPlay)
+{
+  _preferences.setShouldPlaySoundNotificationDuringBreaks(shouldPlay);
+}
+
+void StandardPomodoroEngine::changeSettingSoundNotificationWhenTimerExpires(bool shouldPlay)
+{
+  _preferences.setShouldPlaySoundNotificationWhenTimerExpires(shouldPlay);
 }

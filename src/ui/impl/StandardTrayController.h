@@ -57,6 +57,11 @@ namespace tmty
         void timerStopped();
         void secondElapsed(int, const Interval &);
 
+        void changeSettingSoundNotificationTimerIsSet(bool);
+        void changeSettingSoundNotificationDuringPomodoros(bool);
+        void changeSettingSoundNotificationDuringBreaks(bool);
+        void changeSettingSoundNotificationWhenTimerExpires(bool);
+
       private:
         void updateRemainingTime(int secondsLeft, const Interval &interval);
         void switchToIdleState();

@@ -63,6 +63,19 @@ StandardTrayController::StandardTrayController(Tray &tray, const TrayIconFiles &
   connect(&_timerSignalEmitter, SIGNAL(secondElapsed(int, const Interval &)),
           this, SLOT(secondElapsed(int, const Interval &)));
 
+  // submenu for sounds
+  connect(&tray, SIGNAL(playSoundNotificationWhenTimerIsSetClicked(bool)),
+          this, SLOT(changeSettingSoundNotificationTimerIsSet(bool)));
+
+  connect(&tray, SIGNAL(playSoundNotificationDuringPomodorosClicked(bool)),
+          this, SLOT(changeSettingSoundNotificationDuringPomodoros(bool)));
+
+  connect(&tray, SIGNAL(playSoundNotificationDuringBreaksClicked(bool)),
+          this, SLOT(changeSettingSoundNotificationDuringBreaks(bool)));
+
+  connect(&tray, SIGNAL(playSoundNotificationWhenTimerExpiresClicked(bool)),
+          this, SLOT(changeSettingSoundNotificationWhenTimerExpires(bool)));
+
   if(QApplication::instance())
   {
     connect(&tray, SIGNAL(quitClicked()),
@@ -125,6 +138,26 @@ void StandardTrayController::timerStopped()
 void StandardTrayController::secondElapsed(int secondsLeft, const Interval &interval)
 {
   updateRemainingTime(secondsLeft, interval);
+}
+
+void StandardTrayController::changeSettingSoundNotificationTimerIsSet(bool shouldPlay)
+{
+  _pomodoroEngine.changeSettingSoundNotificationTimerIsSet(shouldPlay);
+}
+
+void StandardTrayController::changeSettingSoundNotificationDuringPomodoros(bool shouldPlay)
+{
+  _pomodoroEngine.changeSettingSoundNotificationDuringPomodoros(shouldPlay);
+}
+
+void StandardTrayController::changeSettingSoundNotificationDuringBreaks(bool shouldPlay)
+{
+  _pomodoroEngine.changeSettingSoundNotificationDuringBreaks(shouldPlay);
+}
+
+void StandardTrayController::changeSettingSoundNotificationWhenTimerExpires(bool shouldPlay)
+{
+  _pomodoroEngine.changeSettingSoundNotificationWhenTimerExpires(shouldPlay);
 }
 
 void StandardTrayController::updateRemainingTime(int secondsLeft, const Interval &interval)

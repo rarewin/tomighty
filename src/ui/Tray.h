@@ -46,6 +46,11 @@ namespace tmty
         void longBreakClicked();
         void stopTimerClicked();
         void quitClicked();
+
+        void playSoundNotificationWhenTimerIsSetClicked(bool);
+        void playSoundNotificationDuringPomodorosClicked(bool);
+        void playSoundNotificationDuringBreaksClicked(bool);
+        void playSoundNotificationWhenTimerExpiresClicked(bool);
     };
   }
 }

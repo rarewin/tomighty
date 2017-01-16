@@ -105,9 +105,9 @@ void StandardTray::buildMenu()
   QAction *playSoundNotificationDuringBreaks = preferences->addAction(tr("Play sound during breaks"));
   playSoundNotificationDuringBreaks->setCheckable(true);
   playSoundNotificationDuringBreaks->setChecked(true);			// default: true
-  QAction *playSoundNotificationWhenTimeExpires = preferences->addAction(tr("Play sound when time expires"));
-  playSoundNotificationWhenTimeExpires->setCheckable(true);
-  playSoundNotificationWhenTimeExpires->setChecked(true);		// default: true
+  QAction *playSoundNotificationWhenTimerExpires = preferences->addAction(tr("Play sound when time expires"));
+  playSoundNotificationWhenTimerExpires->setCheckable(true);
+  playSoundNotificationWhenTimerExpires->setChecked(true);		// default: true
 
   _trayMenu->addSeparator();
 
@@ -124,6 +124,19 @@ void StandardTray::buildMenu()
   connect(_shortBreakAction, SIGNAL(triggered()), this, SIGNAL(shortBreakClicked()));
   connect(_longBreakAction, SIGNAL(triggered()), this, SIGNAL(longBreakClicked()));
   connect(quitAction, SIGNAL(triggered()), this, SIGNAL(quitClicked()));
+
+  // submenu items
+  connect(playSoundNotificationWhenTimerIsSet, SIGNAL(toggled(bool)),
+          this, SIGNAL(playSoundNotificationWhenTimerIsSetClicked(bool)));
+
+  connect(playSoundNotificationDuringPomodoros, SIGNAL(toggled(bool)),
+          this, SIGNAL(playSoundNotificationDuringPomodorosClicked(bool)));
+
+  connect(playSoundNotificationDuringBreaks, SIGNAL(toggled(bool)),
+          this, SIGNAL(playSoundNotificationDuringBreaksClicked(bool)));
+
+  connect(playSoundNotificationWhenTimerExpires, SIGNAL(toggled(bool)),
+          this, SIGNAL(playSoundNotificationWhenTimerExpiresClicked(bool)));
 }
 
 QAction *StandardTray::createTimerAction(QString text, QString iconFile)

@@ -31,14 +31,19 @@ namespace tmty
       Q_OBJECT
 
     public:
-      explicit StandardPomodoroEngine(Timer &timer, const Preferences &preferences, QObject *parent = 0);
+      explicit StandardPomodoroEngine(Timer &timer, Preferences &preferences, QObject *parent = 0);
 
       void start(IntervalType intervalType);
       void stop();
 
+      void changeSettingSoundNotificationTimerIsSet(bool shouldPlay);
+      void changeSettingSoundNotificationDuringPomodoros(bool shouldPlay);
+      void changeSettingSoundNotificationDuringBreaks(bool shouldPlay);
+      void changeSettingSoundNotificationWhenTimerExpires(bool shouldPlay);
+
     private:
       Timer &_timer;
-      const Preferences &_preferences;
+      Preferences &_preferences;
   };
 }
 

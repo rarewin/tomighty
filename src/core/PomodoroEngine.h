@@ -32,6 +32,11 @@ namespace tmty
 
       virtual void start(IntervalType intervalType) = 0;
       virtual void stop() = 0;
+
+      virtual void changeSettingSoundNotificationTimerIsSet(bool shouldPlay) = 0;
+      virtual void changeSettingSoundNotificationDuringPomodoros(bool shouldPlay) = 0;
+      virtual void changeSettingSoundNotificationDuringBreaks(bool shouldPlay) = 0;
+      virtual void changeSettingSoundNotificationWhenTimerExpires(bool shouldPlay) = 0;
   };
 }
 
