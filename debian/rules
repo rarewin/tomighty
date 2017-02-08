@@ -1,17 +1,18 @@
 #!/usr/bin/make -f
 
-override_dh_auto_configure:
-	mkdir build
-	cd build; qmake -qt=qt5 ../src/tomighty.pro
+QMAKE = qmake -qt=qt5
+DEB_QMAKE_ARGS = ../src/tomighty.pro
 
-override_dh_auto_build:
-	cd build; make
+DEB_SRCDIR = $(CURDIR)/src
+DEB_BUILDDIR = $(CURDIR)/build
 
-override_dh_auto_clean:
-	rm -rf build
+cleanbuilddir::
+	-rm -rf $(DEB_DESTDIR)
 
-override_dh_auto_install:
-	cd build; make install INSTALL_ROOT=$(CURDIR)/debian/tomighty
+clean::
+	-rm $(DEB_BUILDDIR)/files
+	-rm $(CURDIR)/debian/tomighty.substvars
 
-%:
-	dh $@
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/qmake.mk
+

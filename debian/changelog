@@ -1,6 +1,7 @@
 tomighty (0~20161102+git6afa215-1) UNRELEASED; urgency=medium
 
   * Upstream update.
+  * Several updates on debian directory.
 
  -- Katsuki Kobayashi <rare@tirasweel.org>  Tue, 08 Nov 2016 22:46:46 +0900
 
