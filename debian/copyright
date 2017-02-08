@@ -1,9 +1,9 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: tomighty
-Source: https://github.com/rarewin/tomighty/tree/develop
+Source: https://github.com/tomighty/tomighty/tree/develop
 
 Files: *
-Copyright: 2010- Célio Cidral Junior <ccidral@gmail.com>
+Copyright: 2010-2014 Célio Cidral Junior.
 License: Apache-2.0
 
 Files: debian/*

@@ -1,12 +1,10 @@
 Source: tomighty
-Section: utils
+Section: misc
 Priority: optional
 Maintainer: Katsuki Kobayashi <rare@tirasweel.org>
 Build-Depends: debhelper (>= 9), qt5-qmake, qtbase5-dev, qtmultimedia5-dev, cdbs
 Standards-Version: 3.9.8
 Homepage: http://tomighty.org/
-#Vcs-Git: https://anonscm.debian.org/collab-maint/tomighty.git
-#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/tomighty.git
 
 Package: tomighty
 Architecture: any
@@ -16,9 +14,12 @@ Description: desktop timer app for the Pomodoro Technique
  .
  It's designed to be:
  .
- * Simple
- * Non-distracting
- * Unintrusive
- * Reasonably configurable
- * Extensible (with plugins)
- * Cross-platform
+   * Simple
+   * Non-distracting
+   * Unintrusive
+   * Reasonably configurable
+   * Extensible (with plugins)
+   * Cross-platform
+ When the application starts, a little tomato icon is shown on the system tray.
+ Its color indicates the current state of the timer. By clicking on the tray
+ icon the main application menu pops up.

@@ -1,7 +1,8 @@
 #!/usr/bin/make -f
 
-QMAKE = qmake -qt=qt5
+QT_SELECT = qt5
 DEB_QMAKE_ARGS = ../src/tomighty.pro
+DEB_BUILD_MAINT_OPTIONS += hardening=+bindnow
 
 DEB_SRCDIR = $(CURDIR)/src
 DEB_BUILDDIR = $(CURDIR)/build

@@ -1,0 +1,2 @@
+# Direct Git
+opts="mode=git" https://github.com/tomighty/tomighty.git

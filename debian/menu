@@ -1,0 +1,2 @@
+?package(tomighty):needs="wm" section="Applications/Project Management"\
+  title="tomighty" command="/usr/bin/tomighty"
