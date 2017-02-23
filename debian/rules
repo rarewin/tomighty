@@ -1,19 +1,7 @@
 #!/usr/bin/make -f
 
-QT_SELECT = qt5
-DEB_QMAKE_ARGS = ../src/tomighty.pro
-DEB_BUILD_MAINT_OPTIONS += hardening=+bindnow
+%:
+	dh $@ --buildsystem=qmake --builddirectory=build --sourcedirectory=src
 
-DEB_SRCDIR = $(CURDIR)/src
-DEB_BUILDDIR = $(CURDIR)/build
-
-cleanbuilddir::
-	-rm -rf $(DEB_DESTDIR)
-
-clean::
-	-rm $(DEB_BUILDDIR)/files
-	-rm $(CURDIR)/debian/tomighty.substvars
-
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/class/qmake.mk
-
+override_dh_auto_configure:
+	dh_auto_configure -- $(CURDIR)/src/tomighty.pro
