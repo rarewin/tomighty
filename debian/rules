@@ -4,4 +4,4 @@
 	dh $@ --buildsystem=qmake --builddirectory=build --sourcedirectory=src
 
 override_dh_auto_configure:
-	dh_auto_configure -- $(CURDIR)/src/tomighty.pro
+	(export QT_SELECT=qt5; dh_auto_configure -- $(CURDIR)/src/tomighty.pro)

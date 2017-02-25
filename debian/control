@@ -8,7 +8,7 @@ Homepage: http://tomighty.org/
 
 Package: tomighty
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${cdbs:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: desktop timer app for the Pomodoro Technique
  A desktop timer app for the Pomodoro Technique® written in C++ on top of Qt 5.
  .
